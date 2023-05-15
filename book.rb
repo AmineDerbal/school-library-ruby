@@ -2,7 +2,7 @@ require_relative 'rentable'
 
 class Book
   attr_accessor :title, :author
-  
+
   def initialize(title, author)
     @title = title
     @author = author
@@ -11,5 +11,5 @@ class Book
 
   def add_rental(date, person, book)
     Rental.new(date, person, book)
-    end
+  end
 end
