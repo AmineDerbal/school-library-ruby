@@ -3,6 +3,7 @@ require_relative 'teacher'
 require_relative 'student'
 require_relative 'book'
 require_relative 'rental'
+require 'date'
 
 class App
   attr_accessor :persons, :books, :rentals
@@ -133,6 +134,22 @@ class App
     @persons[person_index]
   end
 
+  def input_date
+    puts 'input the date of the rental'
+    print 'Month of the year (mm): '
+    month = gets.chomp.to_i
+    print 'Day of the month (dd): '
+    day = gets.chomp.to_i
+    print 'Year (yyyy): '
+    year = gets.chomp.to_i
+  while !Date.valid_date?(year, month, day)
+    puts 'Please input a valid date'
+    return input_date
+  end
+   return "#{month}/#{day}/#{year}"
+  end
+
+
   def add_rental
     if @books.empty?
       puts 'There are no books available'
@@ -147,8 +164,7 @@ class App
     end
     book = select_book_to_rent
     person = select_person_to_rent
-    print 'Date: (DD\MM\YYYY): '
-    date = gets.chomp
+    date = input_date   
     rental = Rental.new(date, person, book)
     @rentals << rental
     puts 'Rental created successfully'
