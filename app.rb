@@ -12,10 +12,11 @@ class App
     @books = []
     @rentals = []
   end
-  
+
   def line_return
     puts '---------------------------'
   end
+
   def print_books
     @books.each do |book|
       puts "Title: #{book.title}, Author: #{book.author}"
@@ -109,7 +110,6 @@ class App
   end
 
   def select_book_to_rent
-    
     puts 'Select a book from the following list by number'
     print_books_by_index
     book_index = gets.chomp.to_i
@@ -122,7 +122,6 @@ class App
   end
 
   def select_person_to_rent
-   
     puts 'Select a person from the following list by number (not id)'
     print_persons_by_index
     person_index = gets.chomp.to_i
@@ -137,7 +136,7 @@ class App
   def add_rental
     if @books.empty?
       puts 'There are no books available'
-    line_return
+      line_return
 
       return
     end
@@ -150,19 +149,19 @@ class App
     person = select_person_to_rent
     print 'Date: (DD\MM\YYYY): '
     date = gets.chomp
-    rental = Rental.new(date, person,book)
+    rental = Rental.new(date, person, book)
     @rentals << rental
     puts 'Rental created successfully'
     line_return
   end
 
   def list_rentals
-   puts 'Id of the person: '
+    puts 'Id of the person: '
     person_id = gets.chomp.to_i
-    person = @persons.find { |person| person.id == person_id }
+    person = @persons.find { |p| p.id == person_id }
     if person.nil?
       puts 'Person do not exist'
-    line_return
+      line_return
       return
     end
     puts "Rentals of #{person.name}:"

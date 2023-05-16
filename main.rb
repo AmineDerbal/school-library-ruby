@@ -12,24 +12,24 @@ def display_menu_options
 end
 
 def run_app(app)
+  menu_options = {
+    '1' => :list_books,
+    '2' => :list_people,
+    '3' => :add_person,
+    '4' => :add_book,
+    '5' => :add_rental,
+    '6' => :list_rentals,
+    '7' => :exit
+  }
+
   loop do
     display_menu_options
     input = gets.chomp
-    case input
-    when '1'
-      app.list_books
-    when '2'
-      app.list_people
-    when '3'
-      app.add_person
-    when '4'
-      app.add_book
-    when '5'
-      app.add_rental
-      when '6'
-      app.list_rentals
-    when '7'
-      break
+
+    if menu_options.key?(input)
+      action = menu_options[input]
+      app.send(action)
+      break if action == :exit
     else
       puts 'Invalid input. Please try again.'
     end
