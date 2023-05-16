@@ -11,20 +11,6 @@ def display_menu_options
   puts '7- Exit'
 end
 
-def add_person(app)
-  print 'Do you want to create a student (1) or a teacher (2)? [input the number]: '
-  person_type = gets.chomp
-  while person_type != '1' && person_type != '2'
-    print 'Please input 1 or 2: '
-    person_type = gets.chomp
-  end
-  if person_type == '1'
-    app.add_student
-  else
-    app.add_teacher
-  end
-end
-
 def run_app(app)
   loop do
     display_menu_options
@@ -35,7 +21,7 @@ def run_app(app)
     when '2'
       app.list_people
     when '3'
-      add_person(app)
+      app.add_person
     when '4'
       app.add_book
     when '5'

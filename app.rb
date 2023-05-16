@@ -83,6 +83,20 @@ class App
     line_return
   end
 
+  def add_person
+    print 'Do you want to create a student (1) or a teacher (2)? [input the number]: '
+    person_type = gets.chomp
+    while person_type != '1' && person_type != '2'
+      print 'Please input 1 or 2: '
+      person_type = gets.chomp
+    end
+    if person_type == '1'
+      add_student
+    else
+      add_teacher
+    end
+  end
+
   def add_book
     puts 'What is the title of the book?'
     title = gets.chomp
