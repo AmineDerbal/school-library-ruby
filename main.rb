@@ -6,6 +6,8 @@ def display_menu_options
   puts '2- List all people'
   puts '3- Create a person'
   puts '4- Create a book'
+  puts '5- Create a rental'
+  puts '6- List all rentals for a given person id'
   puts '7- Exit'
 end
 
@@ -36,6 +38,10 @@ def run_app(app)
       add_person(app)
     when '4'
       app.add_book
+    when '5'
+      app.add_rental
+      when '6'
+      app.list_rentals
     when '7'
       break
     else
