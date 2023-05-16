@@ -89,7 +89,7 @@ Install this project with:
 
 To run the project, execute the following command:
 <ul>
-<li>ruby Person.rb</li>
+<li>ruby main.rb</li>
 </ul>
 
 
