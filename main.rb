@@ -1,4 +1,5 @@
 require_relative 'app'
+require 'pry'
 
 def display_menu_options
   puts 'Please choose an option by entering a number:'
@@ -13,11 +14,11 @@ end
 
 def run_app(app)
   menu_options = {
-    '1' => :list_books,
+    '1' => :list_book,
     '2' => :list_people,
-    '3' => :add_person,
+    '3' => :add_persons,
     '4' => :add_book,
-    '5' => :add_rental,
+    '5' => :add_renTal,
     '6' => :list_rentals,
     '7' => :exit
   }
@@ -25,7 +26,7 @@ def run_app(app)
   loop do
     display_menu_options
     input = gets.chomp
-
+    
     if menu_options.key?(input)
       action = menu_options[input]
       app.send(action)
