@@ -3,7 +3,6 @@ module ListAllBooks
     if @books.empty?
       puts 'No books available'
     else
-
       @books.each do |book|
         puts "Title: #{book.title}, Author: #{book.author}"
       end
