@@ -1,7 +1,10 @@
 require_relative('../teacher')
 require_relative('../student')
+require_relative('./handle_data')
 
 module CreatePerson
+  include HandleData
+
   def add_person
     print 'Do you want to create a student (1) or a teacher (2)? [input the number]: '
     person_type = gets.chomp
@@ -14,6 +17,7 @@ module CreatePerson
     else
       add_teacher
     end
+    save_persons
   end
 
   def add_teacher
