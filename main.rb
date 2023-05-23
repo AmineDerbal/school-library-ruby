@@ -1,4 +1,5 @@
 require_relative 'app'
+require_relative './modules/handle_data'
 
 def main
   app = App.new
