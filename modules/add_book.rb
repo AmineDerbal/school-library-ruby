@@ -2,7 +2,7 @@ require_relative('../book')
 require_relative('handle_data')
 
 module AddBook
-  include HandleData
+  include SaveData
   def add_book
     puts 'What is the title of the book?'
     title = gets.chomp
