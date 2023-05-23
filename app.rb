@@ -19,13 +19,14 @@ class App
   attr_accessor :persons, :books, :rentals
 
   def initialize
+    check_data_files
     @persons = load_persons
     @books = load_books
-    @rentals = []
+    @rentals = load_rentals
   end
 
   def run
-    check_data_files
+    #  puts @rentals
     loop do
       display_menu_options
       option = gets.chomp.to_i
