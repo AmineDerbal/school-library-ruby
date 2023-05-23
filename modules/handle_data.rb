@@ -2,6 +2,7 @@ require 'json'
 require 'fileutils'
 require_relative '../teacher'
 require_relative '../student'
+require_relative "../book"
 
 module HandleData
   def check_data_files
@@ -10,6 +11,27 @@ module HandleData
     File.open('./data/books.json', 'w') unless File.exist?('./data/books.json')
     File.open('./data/rentals.json', 'w') unless File.exist?('./data/rentals.json')
   end
+
+  def save_books
+    books_data = @books.map { |book| { 'title' => book.title, 'author' => book.author, 'rentals' => book.rentals} }
+    File.open('./data/books.json', 'w') do |file|
+      file.write(JSON.pretty_generate(books_data))
+    end
+  end
+  
+  def load_books
+    books = []
+    json_data = File.read('./data/books.json')
+    unless json_data.empty?
+      JSON.parse(json_data).map do |book| 
+        data = Book.new(book['title'], book['author'])
+        data.rentals = book['rentals']
+        books << data
+      end
+    end
+    books
+  end
+
 
   def load_student(person)
     student = if person['parent_permission']
