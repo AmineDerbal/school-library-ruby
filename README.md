@@ -103,6 +103,10 @@ To run the project, execute the following command:
 - GitHub: [@githubhandle](https://github.com/AmineDerbal)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohammed-el-amine-derbal-4038541b6/)
 
+👤 **Sane Myburg**
+- GitHub: [@SaneMyburg](https://github.com/SaneMyburg)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/sane-myburg/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
