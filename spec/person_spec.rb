@@ -2,7 +2,6 @@ require_relative '../person'
 require_relative '../book'
 require_relative '../rental'
 
-
 describe 'test person class' do
   context 'instance of Person' do
     person = Person.new(45, 'amine')

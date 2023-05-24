@@ -1,6 +1,5 @@
 require_relative '../teacher'
 
-
 describe 'test Teacher class' do
   context 'instance of Teacher' do
     teacher = Teacher.new(45, 'Amine', 'Math')
