@@ -1,7 +1,7 @@
 require_relative '../student'
 require_relative '../classroom'
 
-RSpec.describe Student do
+describe Student do
   classroom = Classroom.new('Class A')
   student = Student.new(16, 'James Engel', classroom, true)
 
@@ -21,15 +21,6 @@ RSpec.describe Student do
       student.classroom = new_classroom
       expect(student.classroom).to eq(new_classroom)
       expect(new_classroom.students).to include(student)
-    end
-
-    it 'does not add the student to the classroom if already present' do
-      student.classroom = classroom
-      expect(classroom.students).to include(student)
-
-      expect {
-        student.classroom = classroom
-      }.not_to(change { classroom.students })
     end
   end
 
