@@ -101,7 +101,7 @@ module SaveData
     File.write('./data/books.json', JSON.pretty_generate(books_data))
   end
 
-  def load_rental_data(rental)
+  def save_rental_data(rental)
     rental_data = {
       date: rental[:date],
       id: rental[:id],
@@ -124,7 +124,7 @@ module SaveData
   def save_rentals
     data = []
     @rentals.each do |rental|
-      rental_data = load_rental_data(rental)
+      rental_data = save_rental_data(rental)
       data << rental_data
     end
     puts 'save'
